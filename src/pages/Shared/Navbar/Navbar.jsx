@@ -5,7 +5,6 @@ import logo from "../../../assets/perfectClickLogo.png";
 const Navbar = () => {
     const menuItems = <>
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/home">Home</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/about">About</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/services">Services</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/blog">Blog</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/contact">Contact</NavLink></li>
@@ -23,8 +22,8 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link to="/" className="flex items-center text-3xl gap-3 font-semibold">
-                        <img className='w-20' src={logo} alt="" />Perfect <span className='text-red-600'>Click</span></Link>
+                    <Link to="/" className="flex items-center text-xl md:text-3xl gap-1 md:gap-3 font-semibold">
+                        <img className='w-14 md:w-20' src={logo} alt="" />Perfect <span className='text-red-600'>Click</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">

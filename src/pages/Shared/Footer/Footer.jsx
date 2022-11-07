@@ -10,7 +10,7 @@ const Footer = () => {
                 <div>
                     <Link to="/" className=" text-3xl gap-3 font-semibold">
                         <img className='w-20' src={logo} alt="" />Perfect <span className='text-red-600'>Click</span></Link>
-                    <p >It is a self owner services.  <br /> From Chattogram</p>
+                    <p >It's a self owner services.  <br /> From Chattogram</p>
                 </div>
                 <div>
                     <span className="footer-title">Contact</span>
