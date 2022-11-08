@@ -22,13 +22,13 @@ const Albums = () => {
             <div className='grid grid-cols-2 lg:grid-cols-3 mt-10'>
                 {
                     myShot.map((img, index) =>
-                        <div key={index} className='hover:scale-105 duration-300 '>
+                        <div key={index} className='hover:scale-105 duration-300' data-aos="flip-left">
                             <img className='w-full h-[200px] md:h-[300px] lg:h-[400px] hover:rounded-lg' src={img.image} alt="" />
                         </div>
                     )
                 }
             </div>
-        </div>
+        </div >
     );
 };
 

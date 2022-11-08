@@ -14,15 +14,15 @@ const Footer = () => {
                 </div>
                 <div>
                     <span className="footer-title">Contact</span>
-                    <div>
-                        <p>Phone : 01521xxxxxx</p>
-                        <p>mail : mishkat433@gmail.com</p>
-                    </div>
-                    <p>or</p>
+
                     <div className="grid grid-flow-col gap-4 mt-2">
                         <Link to="/" className='text-3xl hover:text-red-200 duration-300 hover:scale-110'><FaFacebookF /></Link>
                         <Link to="/" className='text-3xl hover:text-red-200 duration-300 hover:scale-110'><FaTwitter /></Link>
                         <Link to="/" className='text-3xl hover:text-red-200 duration-300 hover:scale-110'><FaLinkedinIn /></Link>
+                    </div>
+                    <div>
+                        <p>Phone : 01521xxxxxx</p>
+                        <p>Email : mishkat433@gmail.com</p>
                     </div>
                 </div>
             </div>

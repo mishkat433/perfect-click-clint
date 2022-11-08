@@ -11,8 +11,8 @@ const Navbar = () => {
         <li><Link to="/myAppointment" className="btn btn-outline btn-error mr-3 md:hidden">My appointment</Link></li>
     </>
     return (
-        <div className=' bg-base-100'>
-            <div className="navbar w-11/12 mx-auto">
+        <div className=' bg-base-100  shadow-lg mb-5 sticky top-0 z-20'>
+            <div className="navbar w-11/12 mx-auto ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
