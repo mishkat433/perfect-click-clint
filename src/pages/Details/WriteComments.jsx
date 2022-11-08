@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../Contex/AuthProvider';
 import { toast } from 'react-toastify';
 
-const WriteComments = ({ id }) => {
+const WriteComments = ({ id, setReload, reload }) => {
     const { loginUser } = useContext(AuthContex)
     const [comments, setComments] = useState({
         name: loginUser?.displayName,
@@ -30,13 +30,14 @@ const WriteComments = ({ id }) => {
                             toast("Review successfully added")
                             e.target.reset();
                             comments.comment = "";
+                            setReload(!reload)
                         }
                     })
             }
         }
         else {
             toast("you are not logedIn")
-            navigate("login")
+            navigate("/login")
         }
         e.preventDefault()
     }

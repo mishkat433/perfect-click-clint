@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import serviceHeader from '../../assets/serviceHeader.webp';
+import Review from '../Review/Review';
 import WriteComments from './WriteComments';
 
 
 const Details = () => {
     const singleServices = useLoaderData()
+    const [singleService, setSingleServices] = useState()
     const { image, title, details, price, rating, totalOrder, _id } = singleServices[0];
+    const [review, setReview] = useState([])
+    const [reload, setReload] = useState(true)
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5200/review/${_id}`)
+            .then(res => res.json())
+            .then(data => setReview(data))
+    }, [reload, _id])
+
 
     document.title = "services/details";
     return (
@@ -30,7 +42,15 @@ const Details = () => {
                 </div>
             </div>
             <div className='w-full'>
-                <WriteComments id={_id} />
+                <WriteComments id={_id} setReload={setReload} reload={reload} />
+            </div>
+            <div className='mt-16'>
+                <h3 className='text-3xl'>Review</h3>
+                <div className='grid grid-cols-2 gap-10 mt-5'>
+                    {
+                        review.map(rvw => <Review review={rvw} key={rvw._id} />)
+                    }
+                </div>
             </div>
         </div>
     );
