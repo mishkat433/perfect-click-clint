@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import serviceHeader from '../../assets/serviceHeader.webp';
 // import { FcFullTrash } from "react-icons/fc";
 import { AuthContex } from '../../Contex/AuthProvider';
-import MyReviewsTable from './MyReviewsTable';
+// import MyReviewsTable from './MyReviewsTable';
 import { toast } from 'react-toastify';
 
 const MyReviews = () => {
@@ -59,9 +59,9 @@ const MyReviews = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        {/* {
                             reviews.map((review, index) => <MyReviewsTable key={index} review={review} index={index} reviewsDeleteHandle={reviewsDeleteHandle} />)
-                        }
+                        } */}
                     </tbody>
                 </table>
                 {

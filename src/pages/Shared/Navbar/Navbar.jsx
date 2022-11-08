@@ -10,7 +10,7 @@ const Navbar = () => {
     const menuItems = <>
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/home">Home</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/services">Services</NavLink></li>
-        <li><Link to="/myAppointment" className="btn btn-outline btn-error mr-3 md:hidden">My appointment</Link></li>
+        <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/blog">Blog</NavLink></li>
         {
             loginUser?.uid && <div className='flex'>
                 <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/myReviews">My reviews</NavLink></li>

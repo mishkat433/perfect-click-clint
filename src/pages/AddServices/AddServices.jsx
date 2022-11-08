@@ -1,62 +1,81 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const AddServices = () => {
-    const [product, setProduct] = useState({});
+    const [services, setServices] = useState({});
 
     const submitHandle = (e) => {
-        if (product?.name && product?.price && product?.photo) {
-            fetch("https://auto-car-server.vercel.app/admin/addProduct", {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify(product)
+        console.log(services);
+        fetch("http://localhost:5200/addServices", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(services)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast("Product added Successfully")
+                    setServices({})
+                    e.target.reset()
+                }
+                else {
+                    alert("user is not created")
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.acknowledged) {
-                        // toas("Product added Successfully")
-                        setProduct({})
-                        e.target.reset()
-                    }
-                    else {
-                        alert("user is not created")
-                    }
-                })
-        }
+
         e.preventDefault()
     }
     const addProductHandle = (e) => {
-        setProduct({ ...product, [e.target.name]: e.target.value })
+        setServices({ ...services, [e.target.name]: e.target.value })
     }
     return (
         <div>
             <h4 className='text-center font-semibold text-4xl my-3'>Add Services</h4>
-            <div className=" w-full lg:w-1/2 mx-auto">
-                <form onSubmit={submitHandle} className="card-body">
+            <div className=" w-full lg:w-3/5 mx-auto">
+                <form onSubmit={submitHandle} className="card-body ">
                     <div className="form-control">
                         <label className="label" htmlFor='name'>
-                            <span className="label-text">Product Name : </span>
+                            <span className="label-text">Service Name : </span>
                         </label>
-                        <input type="text" onBlur={addProductHandle} defaultValue={product?.name} placeholder="product name : " name='name' className="input input-bordered" />
+                        <input type="text" onBlur={addProductHandle} defaultValue={services?.title} placeholder="Service name : " name='title' className="input input-bordered" required />
                     </div>
-                    <div className="form-control">
-                        <label className="label" htmlFor='price'>
-                            <span className="label-text">Product Price : </span>
-                        </label>
-                        <input type="number" onBlur={addProductHandle} defaultValue={product?.price} placeholder="product price" name='price' className="input input-bordered" />
+
+                    <div className='flex justify-between gap-6'>
+                        <div className="form-control w-full">
+                            <label className="label" htmlFor='price'>
+                                <span className="label-text">Services Price : </span>
+                            </label>
+                            <input type="number" onBlur={addProductHandle} defaultValue={services?.price} placeholder="product price" name='price' className="input input-bordered" required />
+                        </div>
+                        <div className="form-control w-full">
+                            <label className="label" htmlFor='price'>
+                                <span className="label-text">Services Rating : </span>
+                            </label>
+                            <input type="number" onBlur={addProductHandle} defaultValue={services?.rating} placeholder="product price" name='rating' className="input input-bordered" required />
+                        </div>
+                        <div className="form-control w-full">
+                            <label className="label" htmlFor='price'>
+                                <span className="label-text">Total Clients : </span>
+                            </label>
+                            <input type="number" onBlur={addProductHandle} defaultValue={services?.totalOrder} placeholder="product price" name='totalOrder' className="input input-bordered" required />
+                        </div>
                     </div>
                     <div className="form-control">
                         <label className="label" htmlFor='photo'>
-                            <span className="label-text">Product Phot URL : </span>
+                            <span className="label-text">Services Phot URL : </span>
                         </label>
-                        <input type="text" onBlur={addProductHandle} defaultValue={product?.photo} placeholder="product photo url" name='photo' className="input input-bordered" />
+                        <input type="text" onBlur={addProductHandle} defaultValue={services?.photo} placeholder="product photo url" name='image' className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label" htmlFor='photo'>
+                            <span className="label-text">Details : </span>
+                        </label>
+                        <textarea name="details" onBlur={addProductHandle} className=' resize-none input input-bordered h-24' placeholder='details' required></textarea>
                     </div>
                     <div className="form-control mt-6">
                         <button type='submit' className="btn btn-primary">Add Product</button>
-                    </div>
-                    <div className="form-control mt-6">
-                        <input className="btn btn-error" onClick={() => setProduct({})} type="reset" value="Clear" />
                     </div>
                 </form>
             </div>

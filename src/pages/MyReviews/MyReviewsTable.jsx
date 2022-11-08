@@ -12,7 +12,7 @@ const MyReviewsTable = ({ review, index, reviewsDeleteHandle }) => {
             .then(data => {
                 setServices({ ...services, data: data[0] })
             })
-    }, [])
+    }, [review?.serviceId])
 
     return (
         <tr  >
