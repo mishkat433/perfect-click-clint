@@ -7,6 +7,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'react-photo-view/dist/react-photo-view.css';
 import AuthProvider from './Contex/AuthProvider';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
 
@@ -16,6 +18,7 @@ const App = () => {
   }, [])
   return (
     <div>
+      <ToastContainer />
       <AuthProvider>
         <RouterProvider router={routes}></RouterProvider>
       </AuthProvider>

@@ -7,8 +7,7 @@ import WriteComments from './WriteComments';
 
 const Details = () => {
     const singleServices = useLoaderData()
-    const { image, title, details, price, rating, totalOrder } = singleServices[0];
-    console.log(singleServices);
+    const { image, title, details, price, rating, totalOrder, _id } = singleServices[0];
 
     document.title = "services/details";
     return (
@@ -31,7 +30,7 @@ const Details = () => {
                 </div>
             </div>
             <div className='w-full'>
-                <WriteComments />
+                <WriteComments id={_id} />
             </div>
         </div>
     );
