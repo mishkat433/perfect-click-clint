@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FcFullTrash } from 'react-icons/fc';
 
+
 const MyReviewsTable = ({ review, index, reviewsDeleteHandle }) => {
     const [services, setServices] = useState([]);
 

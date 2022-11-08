@@ -26,7 +26,7 @@ const MyReviews = () => {
     const reviewsDeleteHandle = (id) => {
         const confirm = window.confirm("Do you want to delete this Review?")
         if (confirm) {
-            fetch(`http://localhost:5200/deleteReview/${id}`, {
+            fetch(`https://perfect-click-server.vercel.app/deleteReview/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

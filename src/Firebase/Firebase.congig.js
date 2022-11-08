@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyATRFAJ6JV_HbjPKHYi9LyjS1gA1kHe76E",
-    authDomain: "perfect-click-photography.firebaseapp.com",
-    projectId: "perfect-click-photography",
-    storageBucket: "perfect-click-photography.appspot.com",
-    messagingSenderId: "836361087402",
-    appId: "1:836361087402:web:cf230eeba2226a09cf63d3"
+    apiKey: process.env.REACT_APP_API,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase
