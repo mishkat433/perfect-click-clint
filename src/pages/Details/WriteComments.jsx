@@ -13,7 +13,6 @@ const WriteComments = () => {
                             </label>
                             <textarea name="" placeholder='write your comments here : ' className='h-[150px] border-2 p-3 resize-none rounded-lg'></textarea>
                         </div>
-
                         <div className="form-control mt-6 w-32">
                             <button className="btn btn-primary">Send</button>
                         </div>

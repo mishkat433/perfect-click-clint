@@ -21,14 +21,12 @@ const AuthProvider = ({ children }) => {
     }
 
     const createUser = (email, password) => {
-        console.log(email, password);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const profileUpdate = (name, photo) => {
         return updateProfile(auth.currentUser, { displayName: name, photoURL: photo })
     }
-
 
     const logout = () => {
         localStorage.removeItem('car-token');
