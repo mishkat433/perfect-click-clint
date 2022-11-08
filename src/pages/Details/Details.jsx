@@ -8,20 +8,18 @@ import WriteComments from './WriteComments';
 
 const Details = () => {
     const singleServices = useLoaderData()
-    const [singleService, setSingleServices] = useState()
     const { image, title, details, price, rating, totalOrder, _id } = singleServices[0];
     const [review, setReview] = useState([])
     const [reload, setReload] = useState(true)
 
-
     useEffect(() => {
-        fetch(`http://localhost:5200/review/${_id}`)
+        fetch(`https://perfect-click-server.vercel.app/review?id=${_id}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [reload, _id])
 
-
     document.title = "services/details";
+
     return (
         <div className='w-11/12 mx-auto mb-10'>
             <div className=' bg-no-repeat h-52 md:h-72 rounded-xl my-5 flex items-center' style={{ background: `linear-gradient(to right, #121212b0 40%,rgba(118, 118, 128, 0.20)), url(${serviceHeader})`, backgroundPosition: "left" }}>
@@ -45,12 +43,13 @@ const Details = () => {
                 <WriteComments id={_id} setReload={setReload} reload={reload} />
             </div>
             <div className='mt-16'>
-                <h3 className='text-3xl'>Review</h3>
-                <div className='grid grid-cols-2 gap-10 mt-5'>
+                <h3 className='text-3xl font-semibold text-center text-orange-600 mb-10'>Review</h3>
+                <div className='grid grid-cols-2 gap-10 '>
                     {
-                        review.map(rvw => <Review review={rvw} key={rvw._id} />)
+                        review?.map(rvw => <Review review={rvw} key={rvw._id} />)
                     }
                 </div>
+                {review.length === 0 && <p className='text-center text-red-500'>no review found</p>}
             </div>
         </div>
     );

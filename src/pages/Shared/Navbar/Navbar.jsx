@@ -10,9 +10,14 @@ const Navbar = () => {
     const menuItems = <>
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/home">Home</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/services">Services</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/blog">Blog</NavLink></li>
-        <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/contact">Contact</NavLink></li>
         <li><Link to="/myAppointment" className="btn btn-outline btn-error mr-3 md:hidden">My appointment</Link></li>
+        {
+            loginUser?.uid && <div className='flex'>
+                <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/myReviews">My reviews</NavLink></li>
+                <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/addService">Add services</NavLink></li>
+                <button className='btn bg-orange-500 capitalize border-none ml-2' onClick={() => logout()} >log out</button>
+            </div>
+        }
     </>
     return (
         <div className=' bg-base-100  shadow-lg mb-5 sticky top-0 z-20'>

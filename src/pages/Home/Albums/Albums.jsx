@@ -6,7 +6,7 @@ const Albums = () => {
     const [myShot, setMyShot] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5200/album')
+        fetch('https://perfect-click-server.vercel.app/album')
             .then(res => res.json())
             .then(data => setMyShot(data))
     }, [])
