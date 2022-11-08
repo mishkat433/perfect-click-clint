@@ -29,10 +29,10 @@ const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5200/singleService/${params.id}`),
                 element: <Details />
             },
-            // {
-            //     path: "/login",
-            //     element: <Login />
-            // },
+            {
+                path: "/login",
+                element: <Login />
+            },
             // {
             //     path: "/register",
             //     element: <Login />

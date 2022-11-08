@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'react-photo-view/dist/react-photo-view.css';
+import AuthProvider from './Contex/AuthProvider';
 
 const App = () => {
 
@@ -15,7 +16,9 @@ const App = () => {
   }, [])
   return (
     <div>
-      <RouterProvider router={routes}></RouterProvider>
+      <AuthProvider>
+        <RouterProvider router={routes}></RouterProvider>
+      </AuthProvider>
     </div>
   );
 };

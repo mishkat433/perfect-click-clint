@@ -7,7 +7,7 @@ import WriteComments from './WriteComments';
 
 const Details = () => {
     const singleServices = useLoaderData()
-    const { image, _id, title, details, price, rating, totalOrder } = singleServices[0];
+    const { image, title, details, price, rating, totalOrder } = singleServices[0];
     console.log(singleServices);
 
     document.title = "services/details";
