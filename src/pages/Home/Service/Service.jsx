@@ -7,7 +7,7 @@ const Service = () => {
 
     // https://perfect-click-server.vercel.app
     useEffect(() => {
-        fetch('http://localhost:5200/services?limit=3')
+        fetch('https://perfect-click-server.vercel.app/services?limit=3')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
