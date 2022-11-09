@@ -6,7 +6,7 @@ const AddServices = () => {
 
     const submitHandle = (e) => {
         console.log(services);
-        fetch("http://localhost:5200/addServices", {
+        fetch("https://perfect-click-server.vercel.app/addServices", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

@@ -25,17 +25,17 @@ const Register = () => {
                         }
                         profileUpdate(formData?.name, formData?.photo)
                             .then(result => { }).catch(err => setError(err.message))
-                        // fetch('https://auto-car-server.vercel.app/jwt', {
-                        //     method: "POST",
-                        //     headers: {
-                        //         'content-type': 'application/json'
-                        //     },
-                        //     body: JSON.stringify(currentUser)
-                        // }).then(res => res.json())
-                        //     .then(data => {
-                        //         localStorage.setItem("car-token", data.token)
-                        //         navigate(from, { replace: true })
-                        //     })
+                        fetch('http://localhost:5200/jwt', {
+                            method: "POST",
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(currentUser)
+                        }).then(res => res.json())
+                            .then(data => {
+                                localStorage.setItem("photo-token", data.token)
+                                navigate(from, { replace: true })
+                            })
                     })
                     .catch(err => setError(err.message))
                 setError("")

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from "../../assets/login.svg"
 import { AuthContex } from '../../Contex/AuthProvider';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -8,6 +8,11 @@ const Login = () => {
     const { loginUserManualy } = useContext(AuthContex)
     const [formData, setFormData] = useState(null)
     const [error, setError] = useState("")
+
+    const location = useLocation();
+    const navigate = useNavigate()
+
+    const from = location.state?.from?.pathname || "/";
 
     const LoginHandle = (e) => {
         if (formData?.email) {
@@ -18,17 +23,17 @@ const Login = () => {
                         const currentUser = {
                             email: user.email
                         }
-                        // fetch('https://auto-car-server.vercel.app/jwt', {
-                        //     method: "POST",
-                        //     headers: {
-                        //         'content-type': 'application/json'
-                        //     },
-                        //     body: JSON.stringify(currentUser)
-                        // }).then(res => res.json())
-                        //     .then(data => {
-                        //         localStorage.setItem("car-token", data.token)
-                        //         navigate(from, { replace: true })
-                        //     })
+                        fetch('http://localhost:5200/jwt', {
+                            method: "POST",
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(currentUser)
+                        }).then(res => res.json())
+                            .then(data => {
+                                localStorage.setItem("photo-token", data.token)
+                                navigate(from, { replace: true })
+                            })
                     })
                     .catch(err => setError(err.message))
                 setError("")

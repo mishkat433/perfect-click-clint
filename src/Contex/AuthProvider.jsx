@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const logout = () => {
-        localStorage.removeItem('car-token');
+        localStorage.removeItem('photo-token');
         signOut(auth).then(result => { }).catch(err => console.log(err.message))
     }
 

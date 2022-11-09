@@ -6,6 +6,7 @@ import { AuthContex } from '../../Contex/AuthProvider';
 const SocialLogin = () => {
     const { googleSiginIn } = useContext(AuthContex)
     const [error, setError] = useState("")
+
     const location = useLocation();
     const navigate = useNavigate()
 
@@ -18,7 +19,7 @@ const SocialLogin = () => {
                 const currentUser = {
                     email: user.email
                 }
-                fetch('https://auto-car-server.vercel.app/jwt', {
+                fetch('http://localhost:5200/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -26,7 +27,7 @@ const SocialLogin = () => {
                     body: JSON.stringify(currentUser)
                 }).then(res => res.json())
                     .then(data => {
-                        localStorage.setItem("car-token", data.token)
+                        localStorage.setItem("photo-token", data.token)
                         navigate(from, { replace: true })
                     })
                 setError("")

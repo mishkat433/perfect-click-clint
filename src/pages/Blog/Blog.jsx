@@ -33,7 +33,7 @@ const Blog = () => {
                 </div>
                 <div className="collapse-content">
                     <p>JavaScript is a high-level programming language that makes our web pages and web applications dynamic and interactive by giving them the ability to think and act.</p> <br />
-                    <p>Node.js was first introduced in 2009 developed by Ryan Dahl and is a runtime environment for JavaScript built on Google’s v8 engine whose main purpose is to run JavaScript on the server and hence JavaScript can be executed outside of the browser.</p>
+                    <p>Node.js is a runtime environment for JavaScript built on Google's v8 engine whose main purpose is to run JavaScript on the server and hence JavaScript can be executed outside of the browser.</p>
                 </div>
             </div>
             <div tabIndex={3} className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
