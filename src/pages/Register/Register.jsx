@@ -111,13 +111,13 @@ const Register = () => {
                             <label htmlFor="check">Show password</label>
                         </div>
                         <div className="form-control">
-                            <button type='submit' className="btn bg-orange-600 border-none">Login</button>
+                            <button type='submit' className="btn bg-orange-600 border-none">Register</button>
                         </div>
                         <h5 className='text-center'>or Sign in with</h5>
                     </form>
                     <SocialLogin />
                     <p to="/" className='text-center text-lg mb-10'>Already have an account?
-                        <Link to="/login" className='font-bold text-orange-600'>Register</Link></p>
+                        <Link to="/login" className='font-bold text-orange-600'>Login</Link></p>
                 </div>
             </div>
         </div>
