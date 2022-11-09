@@ -17,13 +17,14 @@ const MyReviews = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`https://perfect-click-server.vercel.app/myReview?email=${loginUser?.email}`, {
+        fetch(`https://perfect-click-server.vercel.app/myReview?email=${loginUser?.email ? loginUser.email : loginUser?.displayName}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("photo-token")}`
             }
         })
             .then(res => {
                 if (res.status === 403 || res.status === 401) {
+                    toast("user email not Found")
                     return logout()
                 }
                 return res.json()
@@ -32,7 +33,7 @@ const MyReviews = () => {
                 setReviews(data)
                 setLoading(false)
             })
-    }, [loginUser?.email, reload, logout])
+    }, [loginUser?.email, loginUser.displayName, reload, logout])
 
     const reviewsDeleteHandle = (id) => {
         const confirm = window.confirm("Do you want to delete this Review?")

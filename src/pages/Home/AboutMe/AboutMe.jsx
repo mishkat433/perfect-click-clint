@@ -10,7 +10,7 @@ const AboutMe = () => {
             </div>
             <div className="flex flex-col md:flex-row justify-between items-center gap-10 bg-base-100 shadow-xl mt-10 rounded-xl" >
                 <img className='w-full md:w-1/2 h-full rounded-tl-xl rounded-tr-xl md:rounded-tr-none md:rounded-bl-xl' src={photographer} alt="Movie" data-aos="fade-right" />
-                <div className="w-full md:w-1/2 p-3 " data-aos="fade-left">
+                <div className="w-full md:w-1/2 p-3 " data-aos="fade-top">
                     <h2 className="text-3xl  md:text-4xl uppercase mb-2 font-bold ">I'm Mishkat</h2>
                     <p className='mb-5 font-semibold'>a patinated photographer</p>
                     <p className='text-gray-500 text-justify'>Right after my graduation from the Chattogram University of Photography in Chattogram, MA I began doing my gigs. After first few years of working at the event agency and with dozens of beautiful wedding sets already in my portfolio, I decided to give it a go and opened up my very own wedding photography service.</p>

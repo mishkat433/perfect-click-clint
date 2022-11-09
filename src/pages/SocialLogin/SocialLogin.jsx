@@ -17,7 +17,8 @@ const SocialLogin = () => {
             .then(result => {
                 const user = result.user;
                 const currentUser = {
-                    email: user.email
+                    email: user.email,
+                    name: user.displayName
                 }
                 fetch('https://perfect-click-server.vercel.app/jwt', {
                     method: "POST",
@@ -40,7 +41,8 @@ const SocialLogin = () => {
             .then(result => {
                 const user = result.user;
                 const currentUser = {
-                    email: user.email
+                    email: user.email,
+                    name: user.displayName
                 }
                 fetch('https://perfect-click-server.vercel.app/jwt', {
                     method: "POST",
