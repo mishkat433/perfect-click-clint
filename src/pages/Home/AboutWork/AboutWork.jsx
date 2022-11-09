@@ -5,7 +5,7 @@ const AboutWork = () => {
     const [workInfo, setWorkInfo] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5200/workInfo')
+        fetch('https://perfect-click-server.vercel.app/workInfo')
             .then(res => res.json())
             .then(data => setWorkInfo(data))
     }, [])
@@ -19,7 +19,7 @@ const AboutWork = () => {
                 {
                     workInfo.map(contact =>
                         <div key={contact._id} className="text-white py-5  text-center md:py-16 items-center gap-5">
-                            <h1 className='text-5xl mb-2 font-bold text-warning'>{contact.count}</h1>
+                            <h1 className='text-5xl mb-2 font-bold text-orange-600'>{contact.count}</h1>
                             <p className='text-xl uppercase'>{contact.title}</p>
                         </div>
                     )

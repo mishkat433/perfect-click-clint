@@ -6,7 +6,7 @@ const Review = ({ review }) => {
 
     return (
         <div className="card shadow-xl border-2">
-            <div className='flex items-center gap-x-5 mt-5 pl-2'>
+            <div className='flex flex-col md:flex-row items-center gap-x-5 mt-5 pl-2'>
                 <figure><img src={photo} alt="not found" className='rounded-full h-20 w-20' /></figure>
                 <div>
                     <h4 className='text-xl font-semibold'>{name ? name : "name not found"}</h4>

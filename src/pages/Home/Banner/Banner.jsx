@@ -48,21 +48,21 @@ const Banner = () => {
                     <img className='w-full h-[50vh] md:h-[80vh] lg:h-[85vh] opacity-40 rounded-xl' src={img1} alt="" />
                     <div className=' absolute top-1/3 ml-5 lg:ml-20 text-white'>
                         <h1 className='text-2xl md:text-3xl lg:text-6xl mb-5 font-semibold'>Wedding <br /> Photography and <br /> Videography</h1>
-                        <p className='text-md lg:text-lg'>Capturing the best moments on film, while each time presenting a unique standpoint.</p>
+                        <p className='text-md lg:text-lg w-1/2 md:w-full'>Capturing the best moments on film, while each time presenting a unique standpoint.</p>
                     </div>
                 </div>
                 <div className='h-[50vh] md:h-[80vh] lg:h-[85vh] w-full bg-gradient-to-l from-gray-600 to-gray-900 rounded-xl'>
                     <img className='w-full h-[50vh] md:h-[80vh] lg:h-[85vh] opacity-40 rounded-xl' src={img2} alt="" />
                     <div className=' absolute top-1/3 ml-5 lg:ml-20 text-white'>
                         <h1 className='text-2xl md:text-3xl lg:text-6xl mb-5 font-semibold'>RAW  <br /> images and save <br /> money</h1>
-                        <p className='text-md lg:text-lg'>If you discard after-edited option for your wedding photos and will take RAW ones, the total price of your potshot will be cut by 15%!</p>
+                        <p className='text-md lg:text-lg w-2/6 md:w-4/6 lg:w-full'>If you discard after-edited option for your wedding photos and will take RAW ones, the total price of your potshot will be cut by 15%!</p>
                     </div>
                 </div>
                 <div className='h-[50vh] md:h-[80vh] lg:h-[85vh] w-full bg-gradient-to-l from-gray-600 to-gray-900 rounded-xl'>
                     <img className='w-full h-[50vh] md:h-[80vh] lg:h-[85vh] opacity-40 rounded-xl' src={img3} alt="" />
                     <div className=' absolute top-1/3 ml-5 lg:ml-20 text-white'>
                         <h1 className='text-2xl md:text-3xl lg:text-6xl mb-5 font-semibold'>Summer  <br /> wedding with your <br /> partner</h1>
-                        <p className='text-md lg:text-lg'>you'd like to invite me for a summer wedding photoshoot,</p>
+                        <p className='text-md lg:text-lg w-4/5 md:w-full'>you'd like to invite me for a summer wedding photoshoot,</p>
                     </div>
                 </div>
             </Slider >

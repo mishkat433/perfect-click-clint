@@ -12,7 +12,7 @@ const Navbar = () => {
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/services">Services</NavLink></li>
         <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/blog">Blog</NavLink></li>
         {
-            loginUser?.uid && <div className='flex'>
+            loginUser?.uid && <div className='flex flex-col lg:flex-row'>
                 <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/myReviews">My reviews</NavLink></li>
                 <li><NavLink className={({ isActive }) => isActive ? "text-black font-bold" : undefined} to="/addService">Add services</NavLink></li>
                 <button className='btn bg-orange-500 capitalize border-none ml-2' onClick={() => logout()} >log out</button>

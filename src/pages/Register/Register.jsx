@@ -27,7 +27,7 @@ const Register = () => {
                         }
                         profileUpdate(formData?.name, formData?.photo)
                             .then(result => { }).catch(err => setError(err.message))
-                        fetch('http://localhost:5200/jwt', {
+                        fetch('https://perfect-click-server.vercel.app/jwt', {
                             method: "POST",
                             headers: {
                                 'content-type': 'application/json'

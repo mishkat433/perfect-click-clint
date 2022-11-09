@@ -43,31 +43,31 @@ const AddServices = () => {
                         <input type="text" onBlur={addProductHandle} defaultValue={services?.title} placeholder="Service name : " name='title' className="input input-bordered" required />
                     </div>
 
-                    <div className='flex justify-between gap-6'>
+                    <div className='flex flex-col md:flex-row justify-between gap-6'>
                         <div className="form-control w-full">
                             <label className="label" htmlFor='price'>
                                 <span className="label-text">Services Price : </span>
                             </label>
-                            <input type="number" onBlur={addProductHandle} defaultValue={services?.price} placeholder="product price" name='price' className="input input-bordered" required />
+                            <input type="number" onBlur={addProductHandle} defaultValue={services?.price} placeholder="services price" name='price' className="input input-bordered" required />
                         </div>
                         <div className="form-control w-full">
                             <label className="label" htmlFor='price'>
                                 <span className="label-text">Services Rating : </span>
                             </label>
-                            <input type="number" onBlur={addProductHandle} defaultValue={services?.rating} placeholder="product price" name='rating' className="input input-bordered" required />
+                            <input type="number" onBlur={addProductHandle} defaultValue={services?.rating} placeholder="rating only number" name='rating' className="input input-bordered" required />
                         </div>
                         <div className="form-control w-full">
                             <label className="label" htmlFor='price'>
                                 <span className="label-text">Total Clients : </span>
                             </label>
-                            <input type="number" onBlur={addProductHandle} defaultValue={services?.totalOrder} placeholder="product price" name='totalOrder' className="input input-bordered" required />
+                            <input type="number" onBlur={addProductHandle} defaultValue={services?.totalOrder} placeholder="total clint" name='totalOrder' className="input input-bordered" required />
                         </div>
                     </div>
                     <div className="form-control">
                         <label className="label" htmlFor='photo'>
                             <span className="label-text">Services Phot URL : </span>
                         </label>
-                        <input type="text" onBlur={addProductHandle} defaultValue={services?.photo} placeholder="product photo url" name='image' className="input input-bordered" required />
+                        <input type="text" onBlur={addProductHandle} defaultValue={services?.photo} placeholder="services photo url" name='image' className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label" htmlFor='photo'>

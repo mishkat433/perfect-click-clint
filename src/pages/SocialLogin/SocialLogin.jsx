@@ -19,7 +19,7 @@ const SocialLogin = () => {
                 const currentUser = {
                     email: user.email
                 }
-                fetch('http://localhost:5200/jwt', {
+                fetch('https://perfect-click-server.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -42,7 +42,7 @@ const SocialLogin = () => {
                 const currentUser = {
                     email: user.email
                 }
-                fetch('http://localhost:5200/jwt', {
+                fetch('https://perfect-click-server.vercel.app/jwt', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
