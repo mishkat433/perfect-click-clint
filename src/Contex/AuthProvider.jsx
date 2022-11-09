@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
 import app from '../Firebase/Firebase.congig';
 
 export const AuthContex = createContext();
@@ -10,9 +10,14 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const googleSiginIn = () => {
         return signInWithPopup(auth, googleProvider)
+    }
+
+    const githubLogin = () => {
+        return signInWithPopup(auth, githubProvider)
     }
 
 
@@ -49,7 +54,7 @@ const AuthProvider = ({ children }) => {
         loginUserManualy,
         createUser,
         profileUpdate,
-
+        githubLogin
     }
 
     return (

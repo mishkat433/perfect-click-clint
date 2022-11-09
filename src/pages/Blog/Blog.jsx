@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Blog = () => {
+    document.title = "Blog"
     return (
         <div className='w-11/12 mx-auto my-10'>
             <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box mb-5">

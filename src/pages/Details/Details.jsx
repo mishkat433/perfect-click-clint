@@ -19,7 +19,6 @@ const Details = () => {
     }, [reload, _id])
 
     document.title = "services/details";
-
     return (
         <div className='w-11/12 mx-auto mb-10'>
             <div className=' bg-no-repeat h-52 md:h-72 rounded-xl my-5 flex items-center' style={{ background: `linear-gradient(to right, #121212b0 40%,rgba(118, 118, 128, 0.20)), url(${serviceHeader})`, backgroundPosition: "left" }}>
@@ -49,6 +48,8 @@ const Details = () => {
                         review?.map(rvw => <Review review={rvw} key={rvw._id} />)
                     }
                 </div>
+
+                {review.length === 0 && <div className='flex justify-center mt-32'><button className="btn loading">loading...</button></div>}
                 {review.length === 0 && <p className='text-center text-red-500'>no review found</p>}
             </div>
         </div>

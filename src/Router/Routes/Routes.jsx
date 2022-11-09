@@ -6,6 +6,7 @@ import Details from "../../pages/Details/Details";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
 import MyReviews from "../../pages/MyReviews/MyReviews";
+import NotFound from "../../pages/NotFound/NotFound";
 import Register from "../../pages/Register/Register";
 import ServicePage from "../../pages/Servicepage/ServicePage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -15,6 +16,7 @@ const routes = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <NotFound />,
         children: [
             {
                 path: "/",

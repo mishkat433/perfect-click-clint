@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import serviceHeader from '../../assets/serviceHeader.webp';
 // import { FcFullTrash } from "react-icons/fc";
 import { AuthContex } from '../../Contex/AuthProvider';
-// import MyReviewsTable from './MyReviewsTable';
+import MyReviewsTable from './MyReviewsTable';
 import { toast } from 'react-toastify';
 
 const MyReviews = () => {
@@ -10,7 +10,10 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false)
     const [reload, setReload] = useState(true)
+    const [close, setClose] = useState(false)
+    const [change, setChange] = useState(null);
 
+    document.title = "My reviews"
 
     useEffect(() => {
         setLoading(true)
@@ -21,7 +24,6 @@ const MyReviews = () => {
                 setLoading(false)
             })
     }, [loginUser?.email, reload])
-
 
     const reviewsDeleteHandle = (id) => {
         const confirm = window.confirm("Do you want to delete this Review?")
@@ -38,6 +40,31 @@ const MyReviews = () => {
                 })
         }
     }
+
+    const submitHandle = (e) => {
+        fetch(`http://localhost:5200/updateService/${change?._id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(change)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast("product update successfully")
+                    setClose(false)
+                    setReload(!reload)
+                }
+            })
+        e.preventDefault()
+
+    }
+
+    const editHandle = (e) => {
+        setChange({ ...change, [e.target.name]: e.target.value })
+    }
+
 
     return (
         <div className='w-11/12 mx-auto my-10'>
@@ -59,15 +86,44 @@ const MyReviews = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {
-                            reviews.map((review, index) => <MyReviewsTable key={index} review={review} index={index} reviewsDeleteHandle={reviewsDeleteHandle} />)
-                        } */}
+                        {
+                            reviews.map((review, index) => <MyReviewsTable key={index} review={review} index={index} setClose={setClose} reviewsDeleteHandle={reviewsDeleteHandle} setChange={setChange} />)
+                        }
                     </tbody>
                 </table>
                 {
                     reviews.length === 0 && <p className='text-center text-red-500 mt-5'>No reviews found</p>
                 }
             </div>
+
+            {/* Modal start */}
+            {close &&
+                <div>
+                    <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+                    <div className="modal">
+                        <div className="modal-box relative">
+                            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                            <div>
+                                <h4 className='text-center font-semibold text-4xl my-3'>Update Review</h4>
+                                <div className="w-full mx-auto">
+                                    <form onSubmit={submitHandle} className="card-body">
+                                        <div className="form-control">
+                                            <label className="label" htmlFor='name'>
+                                                <span className="label-text">Comments : </span>
+                                            </label>
+                                            <textarea onChange={editHandle} name="comment" value={change?.comment} placeholder='write your comments here : ' className='h-[150px] border-2 p-3 resize-none rounded-lg'></textarea>
+                                        </div>
+                                        <div className="form-control mt-6">
+                                            <button type='submit' className="btn btn-primary">Update review</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            {/* Modal end */}
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import loginImg from "../../assets/login.svg"
+import loginImg from "../../assets/login.gif"
 import { AuthContex } from '../../Contex/AuthProvider';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
@@ -11,6 +11,8 @@ const Login = () => {
 
     const location = useLocation();
     const navigate = useNavigate()
+
+    document.title = "Login"
 
     const from = location.state?.from?.pathname || "/";
 
@@ -86,7 +88,7 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input onChange={formHandle} placeholder="your password" name='password' className="input input-bordered" />
+                            <input onChange={formHandle} type="password" placeholder="your password" name='password' className="input input-bordered" />
                         </div>
                         <div className='flex items-center gap-3'>
                             <input type="checkbox" name="check" id="" className='w-5 h-5' />

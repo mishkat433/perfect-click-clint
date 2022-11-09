@@ -10,28 +10,27 @@ const WriteComments = ({ id, setReload, reload }) => {
         email: loginUser?.email,
         photo: loginUser?.photoURL,
         serviceId: id,
+        time: new Date().getTime()
     })
 
     const commentsHandle = (e) => {
-        if (comments?.email) {
-            if (comments.comment) {
-                fetch("https://perfect-click-server.vercel.app/addComment", {
-                    method: "POST",
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(comments)
+        if (comments.comment) {
+            fetch("https://perfect-click-server.vercel.app/addComment", {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(comments)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        toast("Review successfully added")
+                        e.target.reset();
+                        comments.comment = "";
+                        setReload(!reload)
+                    }
                 })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.insertedId) {
-                            toast("Review successfully added")
-                            e.target.reset();
-                            comments.comment = "";
-                            setReload(!reload)
-                        }
-                    })
-            }
         }
         e.preventDefault()
     }
@@ -46,12 +45,10 @@ const WriteComments = ({ id, setReload, reload }) => {
                 <div className="card  w-full  shadow-2xl ">
                     {
                         loginUser?.uid ? <form onSubmit={commentsHandle} className="card-body" >
-
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-lg">Write a comments</span>
                                 </label>
-
                                 <textarea onChange={handlecommentset} name="comment" placeholder='write your comments here : ' className='h-[150px] border-2 p-3 resize-none rounded-lg'></textarea>
                             </div>
                             <div className="rating">

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import loginImg from "../../assets/login.svg"
+import loginImg from "../../assets/login.gif"
 import { AuthContex } from '../../Contex/AuthProvider';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
@@ -13,6 +13,8 @@ const Register = () => {
     const navigate = useNavigate()
 
     const from = location.state?.from?.pathname || "/";
+
+    document.title = "Register"
 
     const registerHandle = (e) => {
         if (formData?.email) {
@@ -100,7 +102,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input onChange={formHandle} name="password" placeholder="your password" className="input input-bordered" />
+                            <input onChange={formHandle} name="password" type="password" placeholder="your password" className="input input-bordered" />
                         </div>
 
                         <div className='flex items-center gap-3'>

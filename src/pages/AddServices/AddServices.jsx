@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 
 const AddServices = () => {
     const [services, setServices] = useState({});
+    document.title = "Add services"
 
     const submitHandle = (e) => {
         console.log(services);
