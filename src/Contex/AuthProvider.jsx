@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
 import app from '../Firebase/Firebase.congig';
 
 export const AuthContex = createContext();
@@ -23,6 +23,15 @@ const AuthProvider = ({ children }) => {
 
     const loginUserManualy = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    const forgetPassword = (email) => {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
     }
 
     const createUser = (email, password) => {
@@ -54,7 +63,8 @@ const AuthProvider = ({ children }) => {
         loginUserManualy,
         createUser,
         profileUpdate,
-        githubLogin
+        githubLogin,
+        forgetPassword
     }
 
     return (

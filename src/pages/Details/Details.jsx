@@ -26,14 +26,14 @@ const Details = () => {
             </div>
             <div className='mt-16'>
                 <div className="flex flex-col lg:flex-row justify-between  gap-14 bg-base-100 shadow-xl rounded-xl">
-                    <img className='w-full lg:w-1/2 h-[500px] rounded-tl-xl rounded-tr-xl lg:rounded-tr-none md:rounded-bl-xl' src={image} alt="details" data-aos="fade-right" />
-                    <div className="w-full lg:w-1/2 p-3 lg:pr-10 mt-10" data-aos="fade-left">
+                    <img className='w-full lg:w-1/2 h-[300px] md:h-[500px] rounded-tl-xl rounded-tr-xl lg:rounded-tr-none md:rounded-bl-xl' src={image} alt="details" data-aos="fade-right" />
+                    <div className="w-full lg:w-1/2 p-3 lg:pr-10 lg:mt-10" data-aos="fade-left">
                         <h2 className="text-4xl uppercase mb-10 font-bold text-center text-orange-600">{title}</h2>
                         <p className='text-justify'>{details}</p>
                         <div className='flex justify-between flex-wrap items-center mt-10'>
                             <p className='text-xl font-semibold'>Price: ${price}.00</p>
                             <p className='text-xl'>Total Order : {totalOrder} </p>
-                            <div className='flex  items-center text-xl'>Rating : {rating} <FaStar className='text-orange-600' /> </div>
+                            <div className='flex  items-center text-xl mb-2'>Rating : {rating} <FaStar className='text-orange-600' /> </div>
                         </div>
                     </div>
                 </div>

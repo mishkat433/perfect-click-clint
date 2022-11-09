@@ -8,6 +8,7 @@ const Register = () => {
     const { createUser, profileUpdate } = useContext(AuthContex)
     const [formData, setFormData] = useState(null)
     const [error, setError] = useState("")
+    const [show, setShow] = useState(false)
 
     const location = useLocation();
     const navigate = useNavigate()
@@ -102,11 +103,11 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input onChange={formHandle} name="password" type="password" placeholder="your password" className="input input-bordered" />
+                            <input onChange={formHandle} name="password" type={show ? "text" : "password"} placeholder="your password" className="input input-bordered" />
                         </div>
 
                         <div className='flex items-center gap-3'>
-                            <input type="checkbox" name="check" id="" className='w-5 h-5' />
+                            <input type="checkbox" onClick={() => setShow(!show)} name="check" id="" className='w-5 h-5' />
                             <label htmlFor="check">Show password</label>
                         </div>
                         <div className="form-control">

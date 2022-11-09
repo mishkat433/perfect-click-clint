@@ -17,7 +17,7 @@ const AddServices = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    toast("Product added Successfully")
+                    toast("Services added Successfully")
                     setServices({})
                     e.target.reset()
                 }

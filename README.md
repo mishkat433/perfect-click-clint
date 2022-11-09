@@ -8,14 +8,14 @@ https://perfect-click-photography.web.app/
 * You Can see my services.
 * You Can see my photography.
 * You can see more comments.
-* User can write comments after login.
+* User can write review after login.
 * You can edit/delete your review.
 * add Services.
 * Create/login Account
 * etc. 
 
 
-### technology used ###
+### Technology used ###
 * React.
 * React icon.
 * React Slick Slider.
@@ -26,5 +26,7 @@ https://perfect-click-photography.web.app/
 * Regex
 * React router dom
 * mongoDB
+
+### Thank You ###
 
 

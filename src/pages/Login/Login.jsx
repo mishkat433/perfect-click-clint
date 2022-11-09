@@ -5,9 +5,10 @@ import { AuthContex } from '../../Contex/AuthProvider';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
-    const { loginUserManualy } = useContext(AuthContex)
+    const { loginUserManualy, forgetPassword } = useContext(AuthContex)
     const [formData, setFormData] = useState(null)
     const [error, setError] = useState("")
+    const [show, setShow] = useState(false)
 
     const location = useLocation();
     const navigate = useNavigate()
@@ -68,6 +69,17 @@ const Login = () => {
             setFormData({ ...formData, [e.target.name]: "" })
         }
     }
+
+    const passwordResetHandle = () => {
+        if (formData?.email) {
+            setError('')
+            forgetPassword(formData?.email)
+        }
+        else {
+            setError("emter your email")
+        }
+    }
+
     return (
         <div className="w-11/12 mx-auto h-full  my-5 md:my-10">
             <div className="flex justify-around items-center gap-10">
@@ -88,15 +100,15 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input onChange={formHandle} type="password" placeholder="your password" name='password' className="input input-bordered" />
+                            <input onChange={formHandle} type={show ? "text" : "password"} placeholder="your password" name='password' className="input input-bordered" />
                         </div>
                         <div className='flex items-center gap-3'>
-                            <input type="checkbox" name="check" id="" className='w-5 h-5' />
+                            <input type="checkbox" onClick={() => setShow(!show)} name="check" id="" className='w-5 h-5' />
                             <label htmlFor="check">Show password</label>
                         </div>
                         <div>
                             <label className="label">
-                                <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
+                                <button onClick={passwordResetHandle} className="label-text-alt link link-hover">Forgot password?</button>
                             </label>
                         </div>
                         <div className="form-control">
