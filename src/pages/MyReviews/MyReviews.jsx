@@ -6,7 +6,7 @@ import MyReviewsTable from './MyReviewsTable';
 import { toast } from 'react-toastify';
 
 const MyReviews = () => {
-    const { loginUser } = useContext(AuthContex);
+    const { loginUser, logout } = useContext(AuthContex);
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false)
     const [reload, setReload] = useState(true)
@@ -17,13 +17,22 @@ const MyReviews = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`http://localhost:5200/review?email=${loginUser?.email}`)
-            .then(res => res.json())
+        fetch(`https://perfect-click-server.vercel.app/myReview?email=${loginUser?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("photo-token")}`
+            }
+        })
+            .then(res => {
+                if (res.status === 403 || res.status === 401) {
+                    return logout()
+                }
+                return res.json()
+            })
             .then(data => {
                 setReviews(data)
                 setLoading(false)
             })
-    }, [loginUser?.email, reload])
+    }, [loginUser?.email, reload, logout])
 
     const reviewsDeleteHandle = (id) => {
         const confirm = window.confirm("Do you want to delete this Review?")
@@ -42,7 +51,7 @@ const MyReviews = () => {
     }
 
     const submitHandle = (e) => {
-        fetch(`http://localhost:5200/updateService/${change?._id}`, {
+        fetch(`https://perfect-click-server.vercel.app/updateService/${change?._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

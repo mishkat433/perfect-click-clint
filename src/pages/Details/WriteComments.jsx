@@ -35,7 +35,7 @@ const WriteComments = ({ id, setReload, reload }) => {
         e.preventDefault()
     }
 
-    const handlecommentset = (e) => {
+    const handlecommentSet = (e) => {
         setComments({ ...comments, [e.target.name]: e.target.value })
     }
 
@@ -49,15 +49,15 @@ const WriteComments = ({ id, setReload, reload }) => {
                                 <label className="label">
                                     <span className="label-text text-lg">Write a comments</span>
                                 </label>
-                                <textarea onChange={handlecommentset} name="comment" placeholder='write your comments here : ' className='h-[150px] border-2 p-3 resize-none rounded-lg'></textarea>
+                                <textarea onChange={handlecommentSet} name="comment" placeholder='write your comments here : ' className='h-[150px] border-2 p-3 resize-none rounded-lg'></textarea>
                             </div>
-                            <div className="rating">
+                            {/* <div className="rating">
                                 <input defaultValue={1} type="radio" name="rating-1" className="mask mask-star-2 bg-orange-400" readOnly />
                                 <input defaultValue={2} type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked readOnly />
                                 <input defaultValue={3} type="radio" name="rating-3" className="mask mask-star-2 bg-orange-400" readOnly />
                                 <input defaultValue={4} type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" readOnly />
                                 <input defaultValue={5} type="radio" name="rating-5" className="mask mask-star-2 bg-orange-400" readOnly />
-                            </div>
+                            </div> */}
                             <div className="form-control mt-6 w-32">
                                 <button className="btn btn-primary">Send</button>
                             </div>
