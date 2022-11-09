@@ -61,7 +61,7 @@ const MyReviews = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    toast("product update successfully")
+                    toast("Review update successfully")
                     setClose(false)
                     setReload(!reload)
                 }

@@ -5,7 +5,6 @@ import ServicesCard from './ServicesCard';
 const Service = () => {
     const [services, setServices] = useState([])
 
-    // https://perfect-click-server.vercel.app
     useEffect(() => {
         fetch('https://perfect-click-server.vercel.app/services?limit=3')
             .then(res => res.json())
