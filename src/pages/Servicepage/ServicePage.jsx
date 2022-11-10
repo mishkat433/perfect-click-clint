@@ -1,10 +1,16 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+// import { useLoaderData } from 'react-router-dom';
 import ServicesCard from '../Home/Service/ServicesCard';
 import serviceHeader from '../../assets/serviceHeader.webp';
 
 const ServicePage = () => {
-    const allServices = useLoaderData();
+    const [allServices, setAllServices] = useState([]);
+
+    useEffect(() => {
+        fetch('https://perfect-click-server.vercel.app/services')
+            .then(res => res.json())
+            .then(data => setAllServices(data))
+    }, [])
 
     document.title = "Services";
 
@@ -14,11 +20,11 @@ const ServicePage = () => {
                 <h1 className='text-white text-3xl lg:text-5xl font-bold ml-5 lg:ml-24'>My Services</h1>
             </div>
             {
-                allServices.length === 0 && <div className='flex justify-center mt-32'><button className="btn loading">loading...</button></div>
+                allServices.length === 0 && <div className='flex justify-center mt-32'><button className="btn loading">{console.log("object")} loading...</button></div>
             }
             <div className='grid grid-cols-1 md:grid-cols-3 gap-10 my-10'>
                 {
-                    allServices.map(service => <ServicesCard service={service} key={service._id} />)
+                    allServices?.map(service => <ServicesCard service={service} key={service._id} />)
                 }
             </div>
 

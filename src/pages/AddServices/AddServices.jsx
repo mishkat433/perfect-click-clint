@@ -6,7 +6,6 @@ const AddServices = () => {
     document.title = "Add services"
 
     const submitHandle = (e) => {
-        console.log(services);
         fetch("https://perfect-click-server.vercel.app/addServices", {
             method: "POST",
             headers: {
@@ -22,7 +21,7 @@ const AddServices = () => {
                     e.target.reset()
                 }
                 else {
-                    alert("user is not created")
+                    alert("services is not created")
                 }
             })
 
@@ -51,13 +50,13 @@ const AddServices = () => {
                             <input type="number" onBlur={addProductHandle} defaultValue={services?.price} placeholder="services price" name='price' className="input input-bordered" required />
                         </div>
                         <div className="form-control w-full">
-                            <label className="label" htmlFor='price'>
+                            <label className="label" htmlFor='rating'>
                                 <span className="label-text">Services Rating : </span>
                             </label>
                             <input type="number" onBlur={addProductHandle} defaultValue={services?.rating} placeholder="rating only number" name='rating' className="input input-bordered" required />
                         </div>
                         <div className="form-control w-full">
-                            <label className="label" htmlFor='price'>
+                            <label className="label" htmlFor='totalOrder'>
                                 <span className="label-text">Total Clients : </span>
                             </label>
                             <input type="number" onBlur={addProductHandle} defaultValue={services?.totalOrder} placeholder="total clint" name='totalOrder' className="input input-bordered" required />
