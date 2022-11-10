@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth"
 import app from '../Firebase/Firebase.congig';
+import { toast } from 'react-toastify';
 
 export const AuthContex = createContext();
 const auth = getAuth(app)
@@ -43,6 +44,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const logout = () => {
+        toast("Logout successful")
         localStorage.removeItem('photo-token');
         signOut(auth).then(result => { }).catch(err => console.log(err.message))
     }
