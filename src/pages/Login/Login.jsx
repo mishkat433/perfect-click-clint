@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import loginImg from "../../assets/login.gif"
 import { AuthContex } from '../../Contex/AuthProvider';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -35,6 +36,7 @@ const Login = () => {
                         }).then(res => res.json())
                             .then(data => {
                                 localStorage.setItem("photo-token", data.token)
+                                toast("Successfully Login")
                                 navigate(from, { replace: true })
                             })
                     })
