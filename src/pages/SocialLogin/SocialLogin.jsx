@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FaGithubAlt, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContex } from '../../Contex/AuthProvider';
 
 const SocialLogin = () => {
@@ -29,6 +30,7 @@ const SocialLogin = () => {
                 }).then(res => res.json())
                     .then(data => {
                         localStorage.setItem("photo-token", data.token)
+                        toast("Login successful")
                         navigate(from, { replace: true })
                     })
                 setError("")
@@ -53,6 +55,7 @@ const SocialLogin = () => {
                 }).then(res => res.json())
                     .then(data => {
                         localStorage.setItem("photo-token", data.token)
+                        toast("Login successful")
                         navigate(from, { replace: true })
                     })
                 setError("")
