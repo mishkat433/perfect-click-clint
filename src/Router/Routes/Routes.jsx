@@ -28,7 +28,6 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/services",
-                // loader: async () => fetch(`https://perfect-click-server.vercel.app/services`),
                 element: <ServicePage />
             },
             {
