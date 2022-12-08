@@ -7,6 +7,10 @@ const ServicePage = () => {
     const [allServices, setAllServices] = useState([]);
 
     useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
+    useEffect(() => {
         fetch('https://perfect-click-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setAllServices(data))
